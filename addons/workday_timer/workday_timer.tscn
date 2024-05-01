@@ -48,14 +48,14 @@ alignment = 1
 [node name="TimerLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_6ryyd")
-text = "00:00:00"
+text = "05:59:56"
 label_settings = SubResource("LabelSettings_c4457")
 vertical_alignment = 1
 
 [node name="PauseButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "Reset"
+text = "Start"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
