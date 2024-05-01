@@ -36,7 +36,7 @@ func pause_timer():
 	else:
 		pause_button.text = "Reset"
 	
-func reset_timer():
+func reset_timer(play: bool = false):
 	timer.stop()
 	current_countdown_seconds = starting_seconds
 	timer_label.label_settings.font_color = Color.WHITE
@@ -44,7 +44,10 @@ func reset_timer():
 	styleBox.set("bg_color", Color(0,0,0,0))
 	timer_label.add_theme_stylebox_override("normal", styleBox)
 	update_timer_label()
-	pause_button.text = "Start"
+	if play:
+		start_timer()
+	else:
+		pause_button.text = "Start"
 
 func _on_timer_timeout():
 	current_countdown_seconds -= 1
@@ -151,11 +154,7 @@ func _on_set_button_button_up():
 	var new_seconds = (hours_edit.value * 3600) + (minutes_edit.value * 60) + seconds_edit.value
 	starting_seconds = new_seconds
 	save_time()
-
-
-func _on_reset_button_button_up():
-	timer_paused = true
-	reset_timer()
+	reset_timer(!timer_paused)
 
 
 func _on_tree_exited():
