@@ -6,7 +6,7 @@ extends PanelContainer
 @onready var pause_button = $MarginContainer/HBoxContainer/PauseButton
 @onready var popup_menu = $PopupMenu
 
-var starting_seconds = 5
+var starting_seconds = 18000
 var current_countdown_seconds = 0
 var timer_paused = true
 
@@ -75,6 +75,7 @@ func save_time(resume_seconds = -1):
 	
 func load_time():
 	if not FileAccess.file_exists("res://addons/workday_timer/time_save.json"):
+		current_countdown_seconds = starting_seconds
 		return
 	var time_save = FileAccess.open("res://addons/workday_timer/time_save.json", FileAccess.READ)
 	while time_save.get_position() < time_save.get_length():

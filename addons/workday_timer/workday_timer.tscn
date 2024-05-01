@@ -48,7 +48,7 @@ alignment = 1
 [node name="TimerLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_6ryyd")
-text = "00:00:06"
+text = "00:00:00"
 label_settings = SubResource("LabelSettings_c4457")
 vertical_alignment = 1
 
