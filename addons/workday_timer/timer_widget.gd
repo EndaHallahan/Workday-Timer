@@ -25,7 +25,7 @@ func _ready():
 func start_timer():
 	timer.start()
 	if current_countdown_seconds != 0:
-		pause_button.text = "Start"
+		pause_button.text = "Pause"
 	else:
 		pause_button.text = "Reset"
 	
@@ -124,7 +124,7 @@ func _on_pause_button_button_up():
 
 
 func _on_settings_button_button_up():
-	var remaining_time = current_countdown_seconds
+	var remaining_time = starting_seconds
 	var hours = floor( remaining_time/ 3600)
 	remaining_time -= hours * 3600
 	var minutes = floor(remaining_time / 60)
