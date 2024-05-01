@@ -17,16 +17,24 @@ func _ready():
 	styleBox.set("bg_color", Color(0,0,0,0))
 	timer_label.add_theme_stylebox_override("normal", styleBox)
 	update_timer_label()
-	pause_button.text = "Start"
-	
+	if current_countdown_seconds != 0:
+		pause_button.text = "Start"
+	else:
+		pause_button.text = "Reset"
 	
 func start_timer():
 	timer.start()
-	pause_button.text = "Pause"
+	if current_countdown_seconds != 0:
+		pause_button.text = "Start"
+	else:
+		pause_button.text = "Reset"
 	
 func pause_timer():
 	timer.stop()
-	pause_button.text = "Resume"
+	if current_countdown_seconds != 0:
+		pause_button.text = "Resume"
+	else:
+		pause_button.text = "Reset"
 	
 func reset_timer():
 	timer.stop()
@@ -40,7 +48,7 @@ func reset_timer():
 
 func _on_timer_timeout():
 	current_countdown_seconds -= 1
-	if current_countdown_seconds == 0:
+	if current_countdown_seconds <= 0:
 		timer.stop()
 		#timer_label.label_settings.font_color = Color.LIGHT_BLUE
 		timer_label.label_settings.font_color = Color.BLACK
